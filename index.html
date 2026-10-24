@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Confetti Animation Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <title>Aayan's Laptop Readiness Task</title>
   <style>
@@ -20,6 +21,7 @@
     .animate-pop {
       animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
+    /* Note rotation effect */
     .money-note {
       position: fixed;
       z-index: 9998;
@@ -33,6 +35,7 @@
   
   <div class="min-h-screen bg-gradient-to-br from-blue-900/60 to-purple-900/60 py-10 px-4 flex items-center justify-center">
     
+    <!-- Main Form Container -->
     <div id="formContainer" class="glass-panel w-full max-w-2xl p-6 md:p-8 rounded-3xl shadow-2xl transition-all duration-500 relative z-10">
       <div class="text-center mb-6">
         <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-2 drop-shadow-sm">
@@ -41,6 +44,7 @@
         <p class="text-gray-700 font-medium">Think like a Pro. Answer thoughtfully.</p>
       </div>
 
+      <!-- Warning Box -->
       <div class="bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg mb-8 shadow-sm text-left">
         <p class="font-extrabold text-lg mb-1 flex items-center">🚨 Attention Aayan!</p>
         <p class="text-sm font-medium leading-relaxed">
@@ -51,31 +55,41 @@
       <form id="aayanForm" onsubmit="handleFormSubmit(event)">
         
         <div class="mb-6 bg-white p-4 rounded-xl shadow-sm border border-blue-100">
-          <label class="block font-bold text-blue-800 mb-2">1. The Real Purpose:</label>
-          <textarea id="q1" required class="w-full border-2 border-gray-200 rounded-lg p-3" rows="3" placeholder="I want to learn..."></textarea>
+          <label class="block font-bold text-blue-800 mb-2">1. The Real Purpose (असली उद्देश्य):<br>
+            <span class="text-sm font-medium text-gray-600">Which 2 new tech skills do you want to learn? (तुम कौन सी 2 नई तकनीकी स्किल्स सीखना चाहते हो?)</span>
+          </label>
+          <textarea id="q1" name="q1" required class="w-full border-2 border-gray-200 rounded-lg p-3 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-200" rows="3" placeholder="I want to learn..."></textarea>
         </div>
 
         <div class="mb-6 bg-white p-4 rounded-xl shadow-sm border border-blue-100">
-          <label class="block font-bold text-blue-800 mb-2">2. Hardware Care:</label>
-          <textarea id="q2" required class="w-full border-2 border-gray-200 rounded-lg p-3" rows="3" placeholder="My 3 rules are..."></textarea>
+          <label class="block font-bold text-blue-800 mb-2">2. Hardware Care (डिवाइस की सुरक्षा):<br>
+            <span class="text-sm font-medium text-gray-600">What 3 strict rules will you follow to protect the laptop? (लैपटॉप को बचाने के लिए तुम कौन से 3 सख्त नियम बनाओगे?)</span>
+          </label>
+          <textarea id="q2" name="q2" required class="w-full border-2 border-gray-200 rounded-lg p-3 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-200" rows="3" placeholder="My 3 rules are..."></textarea>
         </div>
 
         <div class="mb-6 bg-white p-4 rounded-xl shadow-sm border border-blue-100">
-          <label class="block font-bold text-blue-800 mb-2">3. Balance:</label>
-          <textarea id="q3" required class="w-full border-2 border-gray-200 rounded-lg p-3" rows="3" placeholder="I will manage time by..."></textarea>
+          <label class="block font-bold text-blue-800 mb-2">3. Balance (टाइम और हेल्थ मैनेजमेंट):<br>
+            <span class="text-sm font-medium text-gray-600">How will you balance your screen time, playing, and studies? (तुम अपनी पढ़ाई, खेलने और लैपटॉप के बीच कैसे बैलेंस बनाओगे?)</span>
+          </label>
+          <textarea id="q3" name="q3" required class="w-full border-2 border-gray-200 rounded-lg p-3 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-200" rows="3" placeholder="I will manage time by..."></textarea>
         </div>
 
         <div class="mb-6 bg-white p-4 rounded-xl shadow-sm border border-blue-100">
-          <label class="block font-bold text-blue-800 mb-2">4. Tech Mindset:</label>
-          <textarea id="q4" required class="w-full border-2 border-gray-200 rounded-lg p-3" rows="3" placeholder="First I will check..."></textarea>
+          <label class="block font-bold text-blue-800 mb-2">4. Tech Mindset (प्रॉब्लम सॉल्विंग):<br>
+            <span class="text-sm font-medium text-gray-600">If the laptop hangs, what 2 steps will you take yourself? (अगर लैपटॉप हैंग हो जाए, तो खुद से क्या 2 कदम उठाओगे?)</span>
+          </label>
+          <textarea id="q4" name="q4" required class="w-full border-2 border-gray-200 rounded-lg p-3 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-200" rows="3" placeholder="First I will check..."></textarea>
         </div>
 
         <div class="mb-6 bg-white p-4 rounded-xl shadow-sm border border-blue-100">
-          <label class="block font-bold text-blue-800 mb-2">5. The Agreement:</label>
-          <textarea id="q5" required class="w-full border-2 border-gray-200 rounded-lg p-3" rows="2" placeholder="Yes, I agree to..."></textarea>
+          <label class="block font-bold text-blue-800 mb-2">5. The Agreement (घर के नियम):<br>
+            <span class="text-sm font-medium text-gray-600">Do you agree to use the laptop in the hall and turn it off 1 hr before sleep? (क्या तुम इन नियमों से सहमत हो?)</span>
+          </label>
+          <textarea id="q5" name="q5" required class="w-full border-2 border-gray-200 rounded-lg p-3 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-200" rows="2" placeholder="Yes, I agree to..."></textarea>
         </div>
 
-        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-extrabold text-lg py-4 rounded-xl shadow-lg transform transition hover:scale-105">
+        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-extrabold text-lg py-4 rounded-xl shadow-lg transform transition hover:scale-105">
           🚀 Submit Answers
         </button>
 
@@ -93,7 +107,7 @@
       <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded mb-6 text-left">
         <p class="text-sm font-medium">अगर सच में 60,000 - 70,000 रुपये का लैपटॉप चाहिए, तो हर सवाल का जवाब डिटेल में सोच कर लिखो।</p>
       </div>
-      <button onclick="tryAgain()" class="bg-gray-800 text-white font-bold py-3 px-8 rounded-xl shadow-lg transform transition hover:scale-105">
+      <button onclick="tryAgain()" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg transform transition hover:scale-105">
         ✍️ ठीक है, मैं फिर से लिखूंगा
       </button>
     </div>
@@ -104,32 +118,41 @@
       <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-600 mb-4 drop-shadow-sm">
         Congratulations Aayan!
       </h2>
-      <p class="text-xl text-gray-800 font-bold mb-6">Your answers are Excellent!</p>
+      <p class="text-xl text-gray-800 font-bold mb-6">
+        Your answers are Excellent! You have proved your maturity.
+      </p>
       <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-2xl shadow-inner mb-6 transform hover:scale-105 transition">
         <p class="text-lg font-medium">Your Father has Finalized a Budget of</p>
         <p class="text-4xl font-black mt-2">₹60,000 - ₹70,000</p>
         <p class="text-sm mt-1">For Your New Laptop! 💻🚀</p>
       </div>
+      <p class="text-gray-600 font-medium">Get ready to learn and code!</p>
     </div>
 
   </div>
 
   <script>
-    // यह वही URL है जो आपने Google Apps Script (Web App) से कॉपी किया है
+    // ⚠️ यहाँ अपना नया Google Web App URL डालना मत भूलिएगा
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwE-MsximRYBloHDRHvbguJdAURvJXzKmUiscSTIaIcHQKrGWcQ0mBiwDt51fS3o0fu/exec";
 
     function triggerBombAndMoney() {
+      // 1. Bomb Blast Confetti
       var count = 300;
       var defaults = { origin: { y: 0.7 }, zIndex: 9999 };
+
       function fire(particleRatio, opts) {
-        confetti(Object.assign({}, defaults, opts, { particleCount: Math.floor(count * particleRatio) }));
+        confetti(Object.assign({}, defaults, opts, {
+          particleCount: Math.floor(count * particleRatio)
+        }));
       }
+
       fire(0.25, { spread: 26, startVelocity: 55 });
       fire(0.2, { spread: 60 });
       fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
       fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
       fire(0.1, { spread: 120, startVelocity: 45 });
 
+      // 2. Money Rain
       let moneyInterval = setInterval(function() {
         const money = document.createElement('div');
         money.innerHTML = Math.random() > 0.5 ? '💸' : '💵';
@@ -143,9 +166,14 @@
           money.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
         }, 50);
         
-        setTimeout(() => { money.remove(); }, 3000);
+        setTimeout(() => {
+          money.remove();
+        }, 3000);
       }, 150);
-      setTimeout(() => { clearInterval(moneyInterval); }, 5000);
+
+      setTimeout(() => {
+        clearInterval(moneyInterval);
+      }, 5000);
     }
 
     function tryAgain() {
@@ -179,7 +207,6 @@
       submitBtn.classList.add('hidden');
       loader.classList.remove('hidden');
 
-      // Fetch API के ज़रिए GitHub से Google Sheet को डेटा भेजना
       const formData = { q1, q2, q3, q4, q5 };
 
       fetch(GOOGLE_SCRIPT_URL, {
